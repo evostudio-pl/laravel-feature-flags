@@ -1,0 +1,12 @@
+includes:
+    - phpstan-baseline.neon
+
+parameters:
+
+    paths:
+        - src
+        - database
+
+    level: 9
+
+    checkMissingIterableValueType: false

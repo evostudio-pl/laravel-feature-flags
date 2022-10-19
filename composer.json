@@ -1,0 +1,32 @@
+{
+    "name": "evolabs/laravel-feature-flags",
+    "description": "Add simple database feature flags",
+    "license": "proprietary",
+    "type": "library",
+    "require": {
+        "php": "^8.1",
+        "illuminate/database": "^9.36",
+        "illuminate/console": "^9.36",
+        "illuminate/routing": "^9.36"
+    },
+    "version": "1.0",
+    "require-dev": {
+        "phpstan/phpstan": "1.9.x-dev",
+        "laravel/pint": "dev-main"
+    },
+    "autoload": {
+        "psr-4": {
+            "Evolabs\\FeatureFlags\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Evolabs\\FeatureFlags\\FeatureFlagsServiceProvider"
+            ],
+            "aliases": {}
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
