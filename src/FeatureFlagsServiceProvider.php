@@ -2,8 +2,10 @@
 
 namespace Evolabs\FeatureFlags;
 
+use Evolabs\FeatureFlags\Facades\Features;
 use Evolabs\FeatureFlags\Middleware\EnsureFeatureIsAccessible;
 use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class FeatureFlagsServiceProvider extends ServiceProvider
@@ -23,6 +25,8 @@ class FeatureFlagsServiceProvider extends ServiceProvider
                 Commands\TurnOffFeature::class,
             ]);
         }
+
+        Blade::if('feature', fn (string $feature) => Features::isAccessible($feature));
 
         /** @var Router $router */
         $router = $this->app->make(Router::class);
