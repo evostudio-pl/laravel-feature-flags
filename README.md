@@ -142,7 +142,7 @@ class HandleInertiaRequests extends Middleware
 and use them in your vue template:
 
 ```html
-    <div v-if="$page.props.features.information_pages">
-        <p>Feature flag `information_pages` is turned on.</p>
-    </div>
+<div v-if="$page.props.features.information_pages">
+    <p>Feature flag `information_pages` is turned on.</p>
+</div>
 ```

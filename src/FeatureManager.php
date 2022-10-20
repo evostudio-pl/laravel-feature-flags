@@ -70,21 +70,19 @@ class FeatureManager
 
     public function turnOn(BackedEnum|string $feature): void
     {
-        $featureName = $this->featureName($feature);
+        $featureModel = Feature::query()
+            ->where('name', $this->featureName($feature))
+            ->firstOrFail();
 
-        Feature::query()->updateOrCreate(
-            ['name' => $featureName],
-            ['name' => $featureName, 'enabled_at' => Carbon::now()]
-        );
+        $featureModel->update(['updated_at' => Carbon::now()]);
     }
 
     public function turnOff(BackedEnum|string $feature): void
     {
-        $featureName = $this->featureName($feature);
+        $featureModel = Feature::query()
+            ->where('name', $this->featureName($feature))
+            ->firstOrFail();
 
-        Feature::query()->updateOrCreate(
-            ['name' => $featureName],
-            ['name' => $featureName, 'enabled_at' => null]
-        );
+        $featureModel->update(['updated_at' => Carbon::now()]);
     }
 }
