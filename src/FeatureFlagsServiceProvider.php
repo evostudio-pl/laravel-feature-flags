@@ -17,6 +17,10 @@ class FeatureFlagsServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
+                __DIR__ . '/../config/features.php' => config_path('features.php'),
+            ], 'config');
+
+            $this->publishes([
                 __DIR__ . '/../database/migrations/create_features_table.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_features_table.php'),
             ], 'migrations');
 
@@ -38,6 +42,9 @@ class FeatureFlagsServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->singleton(FeatureManager::class, fn () => new FeatureManager());
+        $this->mergeConfigFrom(
+            __DIR__ . '/../config/features.php',
+            'features'
+        );
     }
 }

@@ -14,8 +14,14 @@ The package will automatically register its service provider.
 You can publish and run the migrations with:
 
 ```bash
-php artisan vendor:publish --provider="Evolabs\FeatureFlags\FeatureFlagsServiceProvider"
+php artisan vendor:publish --provider="Evolabs\FeatureFlags\FeatureFlagsServiceProvider" --tag=migrations
 php artisan migrate
+```
+
+You can publish and customize config file with:
+
+```bash
+php artisan vendor:publish --provider="Evolabs\FeatureFlags\FeatureFlagsServiceProvider" --tag=config
 ```
 
 ## Usage

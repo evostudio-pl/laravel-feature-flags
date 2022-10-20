@@ -1,4 +1,7 @@
 parameters:
     ignoreErrors:
-        - "#^Function database_path not found.$#"
         - "#^Function abort not found.$#"
+        - "#^Function app not found.$#"
+        - "#^Function config_path not found.$#"
+        - "#^Function database_path not found.$#"
+        - "#^Function config not found.$#"

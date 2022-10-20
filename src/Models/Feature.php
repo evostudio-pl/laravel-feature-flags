@@ -3,6 +3,7 @@
 namespace Evolabs\FeatureFlags\Models;
 
 use Carbon\Carbon;
+use Evolabs\FeatureFlags\FeatureManager;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -29,4 +30,20 @@ class Feature extends Model
     protected $dates = [
         'enabled_at',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saved(fn () => self::flushCache());
+        static::deleted(fn () => self::flushCache());
+    }
+
+    private static function flushCache(): void
+    {
+        /** @var FeatureManager $featureManager */
+        $featureManager = app(FeatureManager::class);
+
+        $featureManager->forgetCachedFeatures();
+    }
 }

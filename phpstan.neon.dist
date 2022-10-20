@@ -4,8 +4,9 @@ includes:
 parameters:
 
     paths:
-        - src
+        - config
         - database
+        - src
 
     level: 9
 
