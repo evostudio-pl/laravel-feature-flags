@@ -6,7 +6,7 @@ This package allows you to add flags in your application and thus easily turn on
 You can install the package via composer:
 
 ```bash
-composer require evolabs/feature-flags
+composer require evolabs/laravel-feature-flags
 ```
 
 The package will automatically register its service provider.

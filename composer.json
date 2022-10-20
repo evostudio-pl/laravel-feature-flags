@@ -1,5 +1,5 @@
 {
-    "name": "evolabs/feature-flags",
+    "name": "evolabs/laravel-feature-flags",
     "description": "Add simple database feature flags",
     "keywords": [
         "evostudio",
