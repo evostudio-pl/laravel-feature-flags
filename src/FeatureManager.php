@@ -124,6 +124,6 @@ class FeatureManager
             ->where('name', $this->featureName($feature))
             ->firstOrFail();
 
-        $featureModel->update(['enabled_at' => Carbon::now()]);
+        $featureModel->update(['enabled_at' => null]);
     }
 }
