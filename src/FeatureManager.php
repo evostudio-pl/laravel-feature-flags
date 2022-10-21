@@ -32,7 +32,7 @@ class FeatureManager
     public function initCache(): void
     {
         self::$cacheExpirationTime = config('features.cache.expiration_time') ?: \DateInterval::createFromDateString('24 hours');
-        self::$cacheKey = config('features.cache.key');
+        self::$cacheKey ??= config('features.cache.key');
 
         $this->cache = $this->cacheManager->store();
     }

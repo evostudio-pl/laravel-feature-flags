@@ -15,7 +15,7 @@
             "email": "dawid.herrlein@evostudio.pl"
         }
     ],
-    "version": "1.0.1",
+    "version": "1.0.2",
     "require": {
         "php": "^8.1",
         "illuminate/cache": "^9.0",
