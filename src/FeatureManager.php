@@ -10,6 +10,7 @@ use Evolabs\FeatureFlags\Models\Feature;
 use Illuminate\Cache\CacheManager;
 use Illuminate\Contracts\Cache;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Schema;
 
 class FeatureManager
 {
@@ -56,6 +57,10 @@ class FeatureManager
      */
     private function loadFeatures(): Collection
     {
+        if (! Schema::hasTable('features')) {
+            return collect([]);
+        }
+
         /** @var Collection<int, Feature> $features */
         $features = Feature::query()->get(['name', 'group', 'enabled_at']);
 
